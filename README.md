@@ -8,7 +8,9 @@ Entonces, para este caso de ejemplo vamos a subdividir la red 10.4.0.0 /16 para 
 - Ya que nuestra dirección ip tiene el prefijo /16 esto significa que 16 bits representan la parte de red y 16 bits la parte de host. Se puede visualizar de la siguiente forma:
 
 <div>
-<center><p><font color="lime">11111111.11111111.</font><font color="red">00000000.00000000</font></p></center>
+    <p align ="center">
+        <img width="500" src="https://github.com/Josue-Zea/pruebas/blob/master/pictures/1.png">
+    </p>
 </div>
 
 - Para determinar el número de bits que hay que tomar de la parte de host para obtener 16384 subredes se utiliza la expresión:$$ {2^n} \geq 16384 $$
@@ -25,7 +27,9 @@ Esta tabla se puede prolongar todo lo que se quiera calculando potencias de 2. E
 Por lo que hay que tomar **14 bits** en la parte del host como se muestra:
 
 <div>
-<center><p><font color="lime">11111111.11111111.</font><font color="red">11111111.111111</font><font color="#0CB7F2">00</font></p></center>
+    <p align ="center">
+        <img width="500" src="https://github.com/Josue-Zea/pruebas/blob/master/pictures/2.png">
+    </p>
 </div>
 
 Esto significa que las subredes tendrán el prefijo /30. Convirtiendo a decimal cada uno de los octetos se obtiene la nueva máscara de subred, que será la misma para todas las subredes, de ahí se obtiene el prefijo _Máscara fija._
@@ -34,15 +38,9 @@ Esto significa que las subredes tendrán el prefijo /30. Convirtiendo a decimal 
 ## 2. Obtener las subredes
 - Para obtener la dirección de red de cada subred basta con cambiar los bits de subred calculados en el paso anterior. En nuestro caso hay **16384** posibles combinaciones desde 00000000000000 hasta 11111111111111 cada una de las combinaciones es una dirección de red diferente. Esto se aplica de la siguiente forma :
 <div>
-<center><p><font color="lime">10.4.</font><font color="red">00000000.000000</font><font color="#0CB7F2">00</font> => 10.4.0.0</p></center>
-<center><p><font color="lime">10.4.</font><font color="red">00000000.000001</font><font color="#0CB7F2">00</font> => 10.4.0.4</p></center>
-<center><p><font color="lime">10.4.</font><font color="red">00000000.000010</font><font color="#0CB7F2">00</font> => 10.4.0.8</p></center>
-<center><p><font color="lime">10.4.</font><font color="red">00000000.000011</font><font color="#0CB7F2">00</font> => 10.4.0.12</p></center>
-<center><p><font color="lime">10.4.</font><font color="red">00000000.000100</font><font color="#0CB7F2">00</font> => 10.4.0.16</p></center>
-<center><p><font color="lime">10.4.</font><font color="red">00000000.000101</font><font color="#0CB7F2">00</font> => 10.4.0.20</p></center>
-<center><p><font color="lime">10.4.</font><font color="red">00000000.000110</font><font color="#0CB7F2">00</font> => 10.4.0.24</p></center>
-<center><p><font color="lime">10.4.</font><font color="red">00000000.000111</font><font color="#0CB7F2">00</font> => 10.4.0.28</p></center>
-<center>. . .</center>
+    <p align ="center">
+        <img width="500" src="https://github.com/Josue-Zea/pruebas/blob/master/pictures/3.png">
+    </p>
 </div>
 
 _**NOTA:** Si no se siente cómodo con los números, también puede obtener las direcciones de red a travéz del llamado **salto de red** que es la diferencia entre dos direcciones de red consecutivas. El salto de red se calcula como la diferencia entre **256** y el valor del **último octeto no nulo** de la misma máscara. En este caso sería_
@@ -50,14 +48,9 @@ _**NOTA:** Si no se siente cómodo con los números, también puede obtener las 
 
 Entonces para obtener las direcciones de red solo tiene que ir sumando a la dirección de red original el valor del respectivo salto.
 <div>
-<center><p><font color="pink">10.4.0.0</font><font color="orange"> +4</font> => <font color="lime">10.4.0.4</font></p></center>
-<center><p><font color="pink">10.4.0.4</font><font color="orange"> +4</font> => <font color="lime">10.4.0.8</font></p></center>
-<center><p><font color="pink">10.4.0.8</font><font color="orange"> +4</font> => <font color="lime">10.4.0.12</font></p></center>
-<center><p><font color="pink">10.4.0.12</font><font color="orange"> +4</font> => <font color="lime">10.4.0.16</font></p></center>
-<center><p><font color="pink">10.4.0.16</font><font color="orange"> +4</font> => <font color="lime">10.4.0.20</font></p></center>
-<center><p><font color="pink">10.4.0.20</font><font color="orange"> +4</font> => <font color="lime">10.4.0.24</font></p></center>
-<center><p><font color="pink">10.4.0.24</font><font color="orange"> +4</font> => <font color="lime">10.4.0.28</font></p></center>
-<center>. . .</center>
+    <p align ="center">
+        <img width="500" src="https://github.com/Josue-Zea/pruebas/blob/master/pictures/4.png">
+    </p>
 </div>
 
 ## 3. Calcular los parámetros de cada subred
