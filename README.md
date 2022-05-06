@@ -1,6 +1,6 @@
 
 -----------------------------------------
-## **INDICE**
+## **INDICE** 📚
 -----------------------------------------
 1. [**Pasos a seguir**](#cls)
    1. [**Calcular el número de bits de subred necesarios**](#cl1)
@@ -71,7 +71,7 @@ Esto significa que las subredes tendrán el prefijo /30. Convirtiendo a decimal 
 
 _**NOTA:** Si no se siente cómodo con los números, también puede obtener las direcciones de red a travéz del llamado **salto de red** que es la diferencia entre dos direcciones de red consecutivas. El salto de red se calcula como la diferencia entre **256** y el valor del **último octeto no nulo** de la misma máscara. En este caso sería_
 ```
-S=256-252=4
+S = 256 - 252 = 4
 ```
 
 Entonces para obtener las direcciones de red solo tiene que ir sumando a la dirección de red original el valor del respectivo salto.
@@ -87,12 +87,12 @@ Entonces para obtener las direcciones de red solo tiene que ir sumando a la dire
 
 El número de host por subred se calcula de la siguiente forma:
 ```
-H = 2ⁿ -2
+H = 2ⁿ - 2
 ```
 
 En este caso **n** es el número de bits de la parte de host (bits azules en los pasos anteriores). El -2 de la fórmula se debe a que la primera dirección corresponde a la dirección de red y la última corresponde a la dirección de broadcast, por lo que no se las puede asignar a ningún host. Teniendo esto en cuenta, el número de hosts por cada una de nuestras subredes es
 ```
-H = 2² -2 = 2
+H = 2² - 2 = 2
 ```
 
 Para calcular el resto de parámetros tomaremos como referencia la primera subred ya que el proceso es el mismo para el resto de subredes.
@@ -130,3 +130,5 @@ _**NOTA:** Si lo desea puede realizar los calculos sin utilizar números binaios
 
 ## Tras calcular los parámetros de todas las subredes, el resultado final queda como se muestra en la siguiente tabla
 ![Tabla de resultados](/pictures/Tabla.png "This is a sample image.")
+
+Si desea probar la calculadora FLSM puede hacerlo dando click [aqui](https://arcadio.gq/calculadora-subredes-flsm.html).
